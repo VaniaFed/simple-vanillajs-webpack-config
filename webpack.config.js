@@ -6,6 +6,7 @@ module.exports = {
 	entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
     filename: 'bundle.js',
   },
   mode: 'development',
@@ -23,6 +24,10 @@ module.exports = {
         include: path.join(__dirname, 'src'),
         loaders: [ 'pug-loader' ]
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        loader: 'file-loader'
+      }
     ]
   },
   devServer: {
